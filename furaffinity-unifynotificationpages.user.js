@@ -1,16 +1,16 @@
 // ==UserScript==
-// @name        furaffinity unify notification pages
-// @namespace   Violentmonkey Scripts
+// @name        furaffinity.net | unify notification pages
+// @namespace   https://github.com/klazoklazo/monkey-scripts
 // @match       *://www.furaffinity.net/msg/submissions*
 // @match       *://www.furaffinity.net/msg/others*
 // @grant       none
-// @version     2.2
+// @version     2.3
 // @author      klazo
 // @description jankily combines both notification pages by loading one inside another
 // ==/UserScript==
 
 // make sure we're not modifying or redirecting the iframe
-if (window.top == window.self) {
+if (window.top === window.self) {
   if (window.location.href.includes("/msg/others")) {
     // redirect users to submissions notifications page to not confuse them
     // will still be slightly confusing since page will load twice,
@@ -42,10 +42,10 @@ if (window.top == window.self) {
       notificationsOthers.contentWindow.document.querySelector(".mobile-notification-bar").remove();
 
       // prevent unnecessary scrolling in appended notifications
-      var notificationsOthersInside = notificationsOthers.contentWindow.document.getElementById("main-window");
+      let notificationsOthersInside = notificationsOthers.contentWindow.document.getElementById("main-window");
       notificationsOthersInside.style.setProperty("min-height", "initial");
       // dynamically resize iframe to match height of notifications list
-      var heightObserver = new ResizeObserver(entries => {
+      let heightObserver = new ResizeObserver(entries => {
         for (let entry of entries) {
           notificationsOthers.height = notificationsOthersInside.offsetHeight + "px";
         }
