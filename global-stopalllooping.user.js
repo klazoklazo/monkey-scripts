@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name        stop it with the looping
-// @namespace   Violentmonkey Scripts
+// @name        !global | stop all looping
+// @namespace		https://github.com/klazoklazo/monkey-scripts
 // @match       *://*/*
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      -
 // @description removes loop attributes from all videos when it can
 // ==/UserScript==
