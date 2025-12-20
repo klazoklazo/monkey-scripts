@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name        furaffinity fix contact links
-// @namespace   Violentmonkey Scripts
+// @name        furaffinity.net | fix contact links
+// @namespace   https://github.com/klazoklazo/monkey-scripts
 // @match       *://www.furaffinity.net/user/*
 // @grant       none
-// @version     1.1
+// @version     1.2
 // @author      klazo
 // @description sometimes a furaffinity user will include the domain of a site within their contacts, resulting in a duplicated domain within the full url. this fixes that by removing that second domain
 // ==/UserScript==
@@ -30,7 +30,7 @@ if (!!document.getElementById("userpage-contact")) {
       // split apart and reassemble broken url into a working url
       let contactDuplicates = contactCheck.exec(contactLink); contactCheck.lastIndex = 0;
       let contactDomain = contactDuplicates[2];
-      let contactUsername = contactDuplicates[7];
+      let contactUsername = contactDuplicates[7].replace(/%2F/g, "/");
       let contactLinkNew = "https://" + contactDomain + contactUsername;
 
       // replace href and textContent with working counterparts
