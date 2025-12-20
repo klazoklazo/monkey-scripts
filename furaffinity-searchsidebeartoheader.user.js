@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name        furaffinity search sidebar to header
-// @namespace   Violentmonkey Scripts
+// @name        furaffinity.net | search sidebar to header
+// @namespace   https://github.com/klazoklazo/monkey-scripts
 // @match       *://www.furaffinity.net/search*
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      klazo
 // @description script that reformats the advanced search settings from a sidebar to a headerbar
 // ==/UserScript==
