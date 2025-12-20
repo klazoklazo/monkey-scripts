@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name        furaffinity hide default banner
-// @namespace   Violentmonkey Scripts
+// @name        furaffinity.net | hide default banner
+// @namespace   https://github.com/klazoklazo/monkey-scripts
 // @match       *://www.furaffinity.net/*
 // @grant       none
-// @version     1.4
+// @version     1.5
 // @author      klazo
 // @description script that hides the default banner in furaffinity pages while leaving profile banners intact
 // ==/UserScript==
@@ -18,7 +18,7 @@ const subdomainIndex = 28;
 // function to check if default sitewide banner is used
 function checkValid(domain, subdomains) {
   for (let subdomain of subdomains) {
-    if (domain.indexOf(subdomain) == subdomainIndex) {
+    if (domain.indexOf(subdomain) === subdomainIndex) {
       // check if subdomain is a profile subdomain
       return true;
     }
@@ -30,7 +30,7 @@ function checkValid(domain, subdomains) {
 // main behavior
 if (checkValid(document.URL, userpageSubdomains)) {
   // check again if userpage doesnt have a profile banner
-  if (document.querySelector("site-banner").querySelector("img").alt != "Profile Banner image") {
+  if (document.querySelector("site-banner").querySelector("img").alt !== "Profile Banner image") {
     // a userpage without a profile banner
     // remove banner then create empty space for userpage to clip into
     document.querySelector("site-banner").remove();
